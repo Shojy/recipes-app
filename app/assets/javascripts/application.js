@@ -15,8 +15,5 @@
 //= require turbolinks
 //= require tether
 //= require bootstrap
+//= require cocoon
 //= require_tree .
-
-// $(document).ready(function() {
-// 	$(".alert").alert();
-// });
