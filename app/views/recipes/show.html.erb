@@ -1,2 +1,7 @@
 <h1><%= @recipe.title %></h1>
 <p><%= @recipe.description %></p>
+<p>Added on <%= @recipe.created_at %></p>
+
+<%= link_to "Edit", edit_recipe_path %>
+
+<%= link_to "Back to list", root_path %>
