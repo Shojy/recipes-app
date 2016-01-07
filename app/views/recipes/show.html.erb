@@ -2,6 +2,7 @@
 <p><%= @recipe.description %></p>
 <p>Added on <%= @recipe.created_at %></p>
 
-<%= link_to "Edit", edit_recipe_path %>
+<%= link_to "Edit", edit_recipe_path, class: "btn btn-sm btn-primary" %>
+<%= link_to "Delete", recipe_path, method: :delete, data: {confirm: "Are you sure you want to delete this recipe? This cannot be undone!"}, class: "btn btn-sm btn-danger" %>
 
-<%= link_to "Back to list", root_path %>
+<%= link_to "Back to list", root_path, class: "btn btn-sm btn-default" %>

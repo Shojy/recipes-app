@@ -1,4 +1,17 @@
-<h1>Recipes Index</h1>
+
+<div class="row">
 <% @recipe.each do |recipe| %>
-	<h2><%= link_to recipe.title, recipe %></h2>
+  <%= link_to recipe, class: "col-md-3", style: "padding: 5px" do %>
+    <div style="overflow: hidden; width: 100%; height: 200px; padding:0; border: #ccc 1px solid; border-radius: 5px; position: relative;">
+      <% if recipe.image? %>
+      <%= image_tag recipe.image.url(:medium) %>
+      <% end %>
+      <div class="" style="position: absolute; width: 100%; background: rgba(0,0,0,0.65); border-radius:0 0 5px 5px; height: 75px; bottom: 0; padding: 5px;">
+        <h4 style="color: white"><%= recipe.title %></h4>
+        <p class=""><small style="color: #ccc">Last updated <%= time_ago_in_words recipe.updated_at %> ago</small></p>
+      </div>
+    </div>
+
+  <% end %>
 <% end %>
+</div>
