@@ -13,7 +13,31 @@
 		<%= f.input :title, input_html: { class: 'form-control' } %>
 		<%= f.input :description, input_html: { class: 'form-control' } %>
 		<%= f.input :image, input_html: { class: 'form-control-file' } %>
-		<%= f.button :submit, class: 'btn btn-primary' %>
+
+		<div class="row">
+			<div class="col-md-6">
+				<h4>Ingredients</h4>
+				<div id="ingredients">
+					<%= f.simple_fields_for :ingredients do |ingredient| %>
+						<%= render 'ingredient_fields', f: ingredient %>
+					<% end %>
+      		<%= link_to_add_association 'add ingredient', f, :ingredients, class: "btn btn-sm btn-default" %>
+				</div>
+			</div>
+
+			<div class="col-md-6">
+				<h4>Instructions</h4>
+				<div id="instruction">
+					<%= f.simple_fields_for :instructions do |instruction| %>
+						<%= render 'instruction_fields', f: instruction %>
+					<% end %>
+      		<%= link_to_add_association 'add step', f, :instructions, class: "btn btn-sm btn-default" %>
+				</div>
+			</div>
+		</div>
+		<br>
+		<p><%= f.button :submit, class: 'btn btn-primary' %></p>
+		
 	</div>
 
 <% end %>
