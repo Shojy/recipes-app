@@ -1,7 +1,9 @@
 <h1><%= @recipe.title %></h1>
 <p><%= @recipe.description %></p>
-<p>Added on <%= @recipe.created_at %></p>
-
+<p>Added <%= time_ago_in_words @recipe.created_at %> ago</p>
+<% if @recipe.user %>
+<p>Added by <%= @recipe.user.login %>
+<% end %>
 <h4>Ingredients</h4>
 <ul>
   <% @recipe.ingredients.each do |ingredient| %>
